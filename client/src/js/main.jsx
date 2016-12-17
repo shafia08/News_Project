@@ -9,8 +9,9 @@ import About from './components/About.jsx';
 import Home from './components/Home.jsx';
 
 import Contact from './components/Contact.jsx';
+
 import NavBar from './components/NavBar.jsx';
-import FavComponent from './components/FavComponent';
+import viewFavComponent from './components/viewFavComponent';
 
 
 class MainComponent extends React.Component{
@@ -33,7 +34,7 @@ ReactDOM.render(
              <Route path="/home" component={Home}/>
              <Route path="/about" component={About}/>
              <Route path="/contact" component={Contact}/>
-			 <Route path="/favComponent" component={FavComponent}/>
+			 <Route path="/viewfavcomponent" component={viewFavComponent}/>
 			
 			 </Route>
 

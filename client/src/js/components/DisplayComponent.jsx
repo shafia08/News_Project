@@ -24,14 +24,28 @@
 		});
 	   }	
 	    
+	    ViewSaveNews()
+	    {
+	       $.ajax({
+		  url: "http://localhost:8080/news/viewnews",
+		  type: "Get",
+		  dataType: 'JSON',
+		  data : this.props.item,
+		  success : function(msg){
+		    console.log('view news')
+		  },
+		  error: function(err){
+		  console.log('error');
+		  }
+		});
+	    }
 
 	    render()
 		{
 		 	console.log("Display Component Item received is ");
 		 	console.log(this.props.item);
-		   return (
+		    return (
 		    
-
 		    <div className="container-fluid">
             <div className="row">
             <div className="col-md-12">
@@ -54,9 +68,6 @@
 		    </div>
 		    </div>
 		    </div>
-
-		   
-
 		  
 		   );
 		}
