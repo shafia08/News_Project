@@ -1,5 +1,5 @@
 import React from 'react';
-import ViewDisplayComponent from './viewDisplayComponent';
+import ViewDisplayComponent from './ViewDisplayComponent';
 
 export default class FavChildComponent extends React.Component{
 
@@ -13,13 +13,14 @@ export default class FavChildComponent extends React.Component{
       console.log(this.props.viewNews);
      return (
       <div>
-	       {
-          this.props.viewNews.map(function(viewElement){
-          return(<viewDisplayComponent viewElement={viewElement}/>)
+          <h2>Inside Fav child Component</h2> 
+  	       {
+          this.props.viewNews.map(function(ViewElement){
+          return(<ViewDisplayComponent viewElement={ViewElement}/>)
           })
          }
       </div>
-    );
+    )
    
   }
 };  

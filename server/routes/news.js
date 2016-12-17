@@ -76,7 +76,7 @@ router.get('/viewnews', function(req, res) {
        if(err) throw err;
        else
        {
-          res.send("To view saved files : "+allnews);
+          res.send(allnews);
        }
       });
 });

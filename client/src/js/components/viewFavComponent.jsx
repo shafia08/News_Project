@@ -19,7 +19,7 @@
 			  url: "http://localhost:8080/news/viewnews",
 			  type: "GET",
 			  
-			  data : this.props.item,
+			  
 			  
 		    	success : function(msg){
 			    console.log('view news')
@@ -37,8 +37,6 @@
 	  	console.log("View Favorites plan = ");
 		 	
 		    return (
-		    
-		   
 		    <FavChildComponent viewNews={this.state.viewArr}/>
 		  
 		   )
