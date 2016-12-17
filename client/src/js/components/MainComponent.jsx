@@ -38,7 +38,7 @@ export default class MainComponent extends React.Component{
 			<h1>Welcome!</h1>
 			<SearchComponent search = {this.fetchNewsFromExternalAPI} />
 			<NewsComponent newdata = {this.state.newsArr} />
-	<h2>{this.state.newsArr}</h2>
+	        <h2>{this.state.newsArr}</h2>
 			</div>
 		)
 	}
