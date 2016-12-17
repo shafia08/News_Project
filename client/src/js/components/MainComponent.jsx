@@ -20,7 +20,7 @@ export default class MainComponent extends React.Component{
 			dataType: 'JSON',
 
 			success : function(msg){
-				console.log('msg:'+msg);
+			console.log('msg:'+msg);
 			var array = msg.articles;
 			console.log('hello'+array);
 			/*msg reprewsents JSON data of news headlines sent back by external API*/
