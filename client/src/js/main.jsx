@@ -12,6 +12,7 @@ import Contact from './components/Contact.jsx';
 import NavBar from './components/NavBar.jsx';
 import FavComponent from './components/FavComponent';
 
+
 class MainComponent extends React.Component{
 
 render(){
@@ -33,6 +34,7 @@ ReactDOM.render(
              <Route path="/about" component={About}/>
              <Route path="/contact" component={Contact}/>
 			 <Route path="/favComponent" component={FavComponent}/>
+			
 			 </Route>
 
 </Router>,document.getElementById('content'));

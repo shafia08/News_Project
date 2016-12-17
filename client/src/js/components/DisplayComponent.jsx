@@ -1,32 +1,63 @@
-	import React from 'react';
+		import React from 'react';
+		
 
-	export default class DisplayComponent extends React.Component
-	{
-	render()
-	{
-	 	console.log("Display Component Item received is ");
-	 	console.log(this.props.item);
-	  return (
+		export default class DisplayComponent extends React.Component
+		{
+		constructor(){
+		super();
+		this.savingNews = this.savingNews.bind(this);
+		}
+
+		savingNews(){
+		
+		 $.ajax({
+		  url: "http://localhost:8080/news/save",
+		  type: "POST",
+		  dataType: 'JSON',
+		  data : this.props.item,
+		  success : function(msg){
+		    console.log('news saved')
+		  },
+		  error: function(err){
+		  console.log('error');
+		  }
+		});
+	   }	
 	    
-	    <article>
 
-	    <div className="row" id="maindiv">
+	    render()
+		{
+		 	console.log("Display Component Item received is ");
+		 	console.log(this.props.item);
+		   return (
+		    
 
-	    <div className="col-sm-4"><img className="newsPic col-sm-4" src={this.props.item.urlToImage} alt="image" width="200px" />
-	    </div>
+		    <div className="container-fluid">
+            <div className="row">
+            <div className="col-md-12">
+		    <div classname = "jumbotron">
+		   
+	
 
-	    <div className="col-sm-8" height="200px">
-	    <div  className="col-sm-8">
-	    <text className="textTitle"><a href="#" >{this.props.item.title}</a></text>
-	    </div>
-	    <div className="col-sm-8" >
-	    <text>{this.props.item.description}</text>
-	    </div>
-	    </div>
+		    <article className="col-md-4">
+		    <img src="newsPic col-md-4" src={this.props.item.urlToImage} alt="image" width="200" height="200" />
+		    </article>
 
+		    <article className="col-md-8" >
+		    <h3><a href="#" >{this.props.item.title}</a></h3>
+		    <h6>{this.props.item.publishedAt}</h6>
+		    <p>{this.props.item.description}</p>
+		    <input type="button" value="Save" onClick={this.savingNews} />
+		    </article>
+		    
+		    </div>
+		    </div>
+		    </div>
+		    </div>
 
-	    </div>
-	    </article>
-	  );
-	}
-	}
+		   
+
+		  
+		   );
+		}
+		}

@@ -11,15 +11,30 @@ export default class SearchComponent extends React.Component{
   {
     this.props.search(document.getElementById("SearchText").value);
   }
-  render(){
-    //child will always access the parent's data as props.//
-    return (
-      <div>
+  
 
-      <input type = "Text" name="SearchText" id = "SearchText" width="200px" height="200px" />
-      <button onClick={this.searchProvider}>Search</button>
+  render(){
+   
+    return (
+
+      <div className="container-fluid">
       
-      </div>
-    )
+       <div className="row">
+        <div className="col-md-12">
+               <div className="jumbotron">
+                   <div className="form-group">
+                    <input type="text" className="form-control input-lg"  placeholder="Search" id = "SearchText"/>
+                    <div className="input-group-btn-lg">
+                      <center><button className="btn btn-success" onClick={this.searchProvider}>SEARCH
+                      </button></center>
+                    </div>
+                  </div>
+               </div>
+           </div>
+       </div>
+   </div>
+      
+      
+    );
   }
 }
