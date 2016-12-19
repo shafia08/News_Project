@@ -25,6 +25,7 @@
                      <div className="form-group">
                       <input type="text" className="form-control input-lg"  placeholder="Search" id = "SearchText"/>
                       
+                   
                       <div className="input-group-btn-lg">
                         <center><button className="btn btn-success" onClick={this.searchProvider}>SEARCH
                         </button></center>

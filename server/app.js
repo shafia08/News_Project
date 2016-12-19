@@ -8,6 +8,10 @@ var bodyParser = require('body-parser');
 var users= require('./routes/users');
 var news = require('./routes/news');
 
+var passport = require('passport');
+var strategy = require('passport-local').Strategy;
+var connectflash = require('connect-flash');
+
 var webpackDevMiddleware = require("webpack-dev-middleware");
 var webpack = require("webpack");
 var webpackConfig = require("../webpack.config");
@@ -59,6 +63,11 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+
 //app.use('/', routes);
 app.use('/users', users);
 app.use('/news',news);
@@ -94,5 +103,9 @@ app.use(function(err, req, res, next) {
   });
 });
 
-
+app.post('/login', 
+  passport.authenticate('local', { failureRedirect: '/login' }),
+  function(req, res) {
+    res.redirect('/');
+  });
 module.exports = app;
