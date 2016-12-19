@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "41ca6593fde2947415d2"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "a2dd45b5d249ca580f45"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -13883,7 +13883,7 @@
 	"use strict";
 	
 	Object.defineProperty(exports, "__esModule", {
-			value: true
+				value: true
 	});
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -13903,72 +13903,91 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
 	var ViewDisplayComponent = function (_React$Component) {
-			_inherits(ViewDisplayComponent, _React$Component);
+				_inherits(ViewDisplayComponent, _React$Component);
 	
-			function ViewDisplayComponent() {
-					_classCallCheck(this, ViewDisplayComponent);
+				function ViewDisplayComponent() {
+							_classCallCheck(this, ViewDisplayComponent);
 	
-					return _possibleConstructorReturn(this, (ViewDisplayComponent.__proto__ || Object.getPrototypeOf(ViewDisplayComponent)).apply(this, arguments));
-			}
+							var _this = _possibleConstructorReturn(this, (ViewDisplayComponent.__proto__ || Object.getPrototypeOf(ViewDisplayComponent)).call(this));
 	
-			_createClass(ViewDisplayComponent, [{
-					key: "render",
-					value: function render() {
-							var _React$createElement;
+							_this.deleteNews = _this.deleteNews.bind(_this);
+							return _this;
+				}
 	
-							console.log("View Display Component");
-							console.log(this.props.viewElement);
-							return _react2.default.createElement(
-									"div",
-									{ className: "container-fluid" },
-									_react2.default.createElement(
-											"div",
-											{ className: "row" },
-											_react2.default.createElement(
-													"div",
-													{ className: "col-md-12" },
+				_createClass(ViewDisplayComponent, [{
+							key: "deleteNews",
+							value: function deleteNews() {
+										$.ajax({
+													url: "http://localhost:8080/news/delete",
+													type: "DELETE",
+													data: this.props.item.title,
+	
+													success: function success(msg) {
+	
+																console.log('news deleted');
+													},
+													error: function error(err) {
+																console.log('error');
+													}
+										});
+							}
+				}, {
+							key: "render",
+							value: function render() {
+										var _React$createElement;
+	
+										console.log("View Display Component");
+										console.log(this.props.viewElement);
+										return _react2.default.createElement(
+													"section",
+													{ className: "container-fluid" },
 													_react2.default.createElement(
-															"div",
-															{ className: "jumbotron" },
-															_react2.default.createElement(
-																	"article",
-																	{ className: "col-md-4" },
-																	_react2.default.createElement("img", (_React$createElement = { src: "newsPic col-md-4" }, _defineProperty(_React$createElement, "src", this.props.viewElement.urlToImage), _defineProperty(_React$createElement, "alt", "image"), _defineProperty(_React$createElement, "width", "200"), _defineProperty(_React$createElement, "height", "200"), _React$createElement))
-															),
-															_react2.default.createElement(
-																	"article",
-																	{ className: "col-md-8" },
-																	_react2.default.createElement(
-																			"h3",
-																			null,
+																"section",
+																{ className: "row" },
+																_react2.default.createElement(
+																			"section",
+																			{ className: "col-md-12" },
 																			_react2.default.createElement(
-																					"a",
-																					{ href: "#" },
-																					this.props.viewElement.title
+																						"section",
+																						{ className: "jumbotron" },
+																						_react2.default.createElement(
+																									"article",
+																									{ className: "col-md-4" },
+																									_react2.default.createElement("img", (_React$createElement = { src: "newsPic col-md-4" }, _defineProperty(_React$createElement, "src", this.props.viewElement.urlToImage), _defineProperty(_React$createElement, "alt", "image"), _defineProperty(_React$createElement, "width", "200"), _defineProperty(_React$createElement, "height", "200"), _React$createElement))
+																						),
+																						_react2.default.createElement(
+																									"article",
+																									{ className: "col-md-8" },
+																									_react2.default.createElement(
+																												"h3",
+																												null,
+																												_react2.default.createElement(
+																															"a",
+																															{ href: "#" },
+																															this.props.viewElement.title
+																												)
+																									),
+																									_react2.default.createElement(
+																												"h6",
+																												null,
+																												this.props.viewElement.publishedAt
+																									),
+																									_react2.default.createElement(
+																												"p",
+																												null,
+																												this.props.viewElement.description
+																									),
+																									_react2.default.createElement("input", { type: "button", value: "update" }),
+																									_react2.default.createElement("input", { type: "button", value: "delete", onClick: this.deleteNews })
+																						)
 																			)
-																	),
-																	_react2.default.createElement(
-																			"h6",
-																			null,
-																			this.props.viewElement.publishedAt
-																	),
-																	_react2.default.createElement(
-																			"p",
-																			null,
-																			this.props.viewElement.description
-																	),
-																	_react2.default.createElement("input", { type: "button", value: "Save" }),
-																	_react2.default.createElement("input", { type: "button", value: "update" }),
-																	_react2.default.createElement("input", { type: "button", value: "delete" })
-															)
+																)
 													)
-											)
-									)
-							);
-					}
-			}]);
+										);
+							}
+				}]);
 	
-			return ViewDisplayComponent;
+				return ViewDisplayComponent;
 	}(_react2.default.Component);
 	
 	exports.default = ViewDisplayComponent;
@@ -14023,8 +14042,6 @@
 				$.ajax({
 					url: "http://localhost:8080/news/viewnews",
 					type: "GET",
-	
-					data: this.props.item,
 	
 					success: function success(msg) {
 						console.log('view news');

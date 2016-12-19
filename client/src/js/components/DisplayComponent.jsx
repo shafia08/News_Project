@@ -32,10 +32,8 @@
 		 	console.log(this.props.item);
 		    return (
 		    
-		    <div className="container-fluid">
-            <div className="row">
-            <div className="col-md-12">
-		    <div className = "jumbotron">
+		    <div className="container">
+            <div className="row jumbotron">
 		   
 	
 
@@ -50,8 +48,6 @@
 		    <input type="button" value="Save" onClick={this.savingNews} />
 		    </article>
 		    
-		    </div>
-		    </div>
 		    </div>
 		    </div>
 		  

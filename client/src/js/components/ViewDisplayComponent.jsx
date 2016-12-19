@@ -14,9 +14,10 @@
 		          $.ajax({
 				  url: "http://localhost:8080/news/delete",
 				  type: "DELETE",
-				  dataType: 'JSON',
-				 
+				  data :this.props.viewElement,
+				
 				  success : function(msg){
+
 				    console.log('news deleted')
 				  },
 				  error: function(err){
@@ -32,13 +33,9 @@
 			 	console.log(this.props.viewElement);
 			    return (
 			    
-			    <div className="container-fluid">
-	            <div className="row">
-	            <div className="col-md-12">
-			    <div className = "jumbotron">
-			   
-		
-
+			    <div className="container">
+	            <div className = "row jumbotron">
+	    
 			    <article className="col-md-4">
 			    <img src="newsPic col-md-4" src={this.props.viewElement.urlToImage} alt="image" width="200" height="200" />
 			    </article>
@@ -48,15 +45,14 @@
 			    <h6>{this.props.viewElement.publishedAt}</h6>
 			    <p>{this.props.viewElement.description}</p>
 			   
-			     <input type="button" value="update"  /> &nbsp
-			      <input type="button" value="delete"  onClick={this.deleteNews}/>
+			     <input type="button" value="update"  /> 
+			     <input type="button" value="delete"  onClick={this.deleteNews}/>
 			    </article>
 			    
-			    </div>
-			    </div>
+			   
 			    </div>
 			    </div>
 			  
 			   );
 			}
-			};
+			}; 
