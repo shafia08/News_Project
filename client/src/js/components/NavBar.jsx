@@ -13,8 +13,6 @@ render() {
            <li><Link to="/viewfavcomponent">Favorites</Link></li>
             <li><Link to="/about">About Us</Link></li>
            <li><Link to="/contact">Contact Us</Link></li>
-           
-          
         </ul>
       </div>
      </nav>

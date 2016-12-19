@@ -14,6 +14,7 @@ router.post('/save', function(req, res)
       url : req.body.url,
       urlToImage : req.body.urlToImage,
       publishedAt : req.body.publishedAt,
+      Comment : req.body.Comment
     });
 
     //save values in database

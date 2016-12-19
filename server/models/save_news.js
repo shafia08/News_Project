@@ -8,7 +8,8 @@ var save_news = new schema(
     description:String,
     url:String,
     urlToImage:String,
-    publishedAt:String
+    publishedAt:String,
+    Comment:String
   }
 )
 var save_my_news = mongoose.model('saveNews',save_news);
