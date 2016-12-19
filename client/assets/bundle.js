@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "f7906c8978a93f928237"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "6a89a0a92e1ab18f8731"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -13904,6 +13904,7 @@
 	
 									_this.deleteNews = _this.deleteNews.bind(_this);
 									_this.viewNews = _this.viewNews.bind(_this);
+	
 									return _this;
 					}
 	

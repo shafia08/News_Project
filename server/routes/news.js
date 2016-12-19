@@ -55,8 +55,8 @@ router.put('/update',function(req,res,next)
 {
 
     var mytitle = req.body.title;
-    var mydesc = req.body.description;
-    saveMynews.update({'title':mytitle},{$set:{'description':mydesc}},function(err)
+    var myComment = req.body.Comment;
+    saveMynews.update({'title':mytitle},{$set:{'Comment':myComment}},function(err)
     {
      if(err)
       {
@@ -65,7 +65,7 @@ router.put('/update',function(req,res,next)
      else
       {
 
-         res.send("find title to update"+mytitle+' '+mydesc);
+         res.send("find title to update"+mytitle+' '+myComment);
       }
   });
 

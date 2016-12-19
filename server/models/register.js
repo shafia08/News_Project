@@ -9,5 +9,5 @@ var userRegDetails= new schema(
     password:String
   }
 )
-var user = mongoose.model('cat',userRegDetails);
+var user = mongoose.model('cats',userRegDetails);
 module.exports = user;
