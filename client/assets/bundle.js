@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "9941e2bce5b7bb031407"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "f79ce9c27a82fdbff171"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -14127,7 +14127,7 @@
 	"use strict";
 	
 	Object.defineProperty(exports, "__esModule", {
-	  value: true
+	    value: true
 	});
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -14144,63 +14144,170 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var registration = function (_React$Component) {
-	  _inherits(registration, _React$Component);
+	var login = function (_React$Component) {
+	    _inherits(login, _React$Component);
 	
-	  function registration() {
-	    _classCallCheck(this, registration);
+	    function login() {
+	        _classCallCheck(this, login);
 	
-	    return _possibleConstructorReturn(this, (registration.__proto__ || Object.getPrototypeOf(registration)).apply(this, arguments));
-	  }
-	
-	  _createClass(registration, [{
-	    key: "render",
-	    value: function render() {
-	      return _react2.default.createElement(
-	        "div",
-	        null,
-	        _react2.default.createElement(
-	          "h1",
-	          null,
-	          "SignUp"
-	        ),
-	        _react2.default.createElement(
-	          "h3",
-	          null,
-	          "FirstName:",
-	          _react2.default.createElement("input", { type: "text", placeholder: "Firstname" })
-	        ),
-	        _react2.default.createElement(
-	          "h3",
-	          null,
-	          "LastName:",
-	          _react2.default.createElement("input", { type: "text", placeholder: "Lastname" })
-	        ),
-	        _react2.default.createElement(
-	          "h3",
-	          null,
-	          "Email Id:",
-	          _react2.default.createElement("input", { type: "email", placeholder: "email id" })
-	        ),
-	        _react2.default.createElement(
-	          "h3",
-	          null,
-	          "Password:",
-	          _react2.default.createElement("input", { type: "password", placeholder: "password" })
-	        ),
-	        _react2.default.createElement(
-	          "button",
-	          { type: "button" },
-	          "SignUp"
-	        )
-	      );
+	        return _possibleConstructorReturn(this, (login.__proto__ || Object.getPrototypeOf(login)).call(this));
 	    }
-	  }]);
 	
-	  return registration;
+	    _createClass(login, [{
+	        key: "register",
+	        value: function register() {
+	            $.ajax({
+	                url: "http://localhost:8080/user/register",
+	                type: "POST",
+	                dataType: 'JSON',
+	                data: 'fname=' + document.getElementById("fname").value + '&lname=' + document.getElementById("lname").value + '&email=' + document.getElementById("email").value + '&pwd=' + document.getElementById("pwd").value,
+	
+	                success: function success(msg) {
+	                    console.log("msgg");
+	                },
+	                error: function error(err) {
+	                    console.log("error occurred");
+	                }
+	            });
+	        }
+	    }, {
+	        key: "render",
+	        value: function render() {
+	            return _react2.default.createElement(
+	                "div",
+	                null,
+	                _react2.default.createElement(
+	                    "center",
+	                    null,
+	                    _react2.default.createElement(
+	                        "h1",
+	                        null,
+	                        "SignUp"
+	                    ),
+	                    _react2.default.createElement(
+	                        "h3",
+	                        null,
+	                        "Username:",
+	                        _react2.default.createElement("input", { type: "text", placeholder: "Enter Username" })
+	                    ),
+	                    _react2.default.createElement(
+	                        "h3",
+	                        null,
+	                        "Password:",
+	                        _react2.default.createElement("input", { type: "password", placeholder: "Enter password" })
+	                    ),
+	                    _react2.default.createElement(
+	                        "button",
+	                        { className: "btn btn-primary", type: "button" },
+	                        "Login"
+	                    ),
+	                    _react2.default.createElement("br", null),
+	                    _react2.default.createElement("br", null),
+	                    "If New User,Click Here ",
+	                    _react2.default.createElement(
+	                        "a",
+	                        { href: "#ModalWindow", role: "button", "data-toggle": "modal", "class": "btn btn-primary" },
+	                        "Sign Up"
+	                    )
+	                ),
+	                _react2.default.createElement(
+	                    "div",
+	                    { className: "modal fade", id: "ModalWindow" },
+	                    _react2.default.createElement(
+	                        "div",
+	                        { className: "modal-dialog" },
+	                        _react2.default.createElement(
+	                            "div",
+	                            { className: "modal-content" },
+	                            _react2.default.createElement(
+	                                "div",
+	                                { className: "modal-header" },
+	                                _react2.default.createElement(
+	                                    "button",
+	                                    { className: "close", "data-dismiss": "modal" },
+	                                    "X"
+	                                ),
+	                                _react2.default.createElement(
+	                                    "h4",
+	                                    null,
+	                                    "User Registration "
+	                                )
+	                            ),
+	                            _react2.default.createElement(
+	                                "div",
+	                                { className: "modal-body" },
+	                                _react2.default.createElement(
+	                                    "form",
+	                                    { className: "form-horizontal" },
+	                                    _react2.default.createElement(
+	                                        "div",
+	                                        { className: "form-group" },
+	                                        _react2.default.createElement(
+	                                            "label",
+	                                            { className: "col-lg-2 control-label", "for": "username" },
+	                                            "Username"
+	                                        ),
+	                                        _react2.default.createElement(
+	                                            "div",
+	                                            { "class": "col-lg-10" },
+	                                            _react2.default.createElement("input", { "class": "form-control", id: "username", type: "text", placeholder: "Enter username" })
+	                                        )
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        "div",
+	                                        { className: "form-group" },
+	                                        _react2.default.createElement(
+	                                            "label",
+	                                            { className: "col-lg-2 control-label", "for": "email" },
+	                                            "Email"
+	                                        ),
+	                                        _react2.default.createElement(
+	                                            "div",
+	                                            { "class": "col-lg-10" },
+	                                            _react2.default.createElement("input", { "class": "form-control", id: "email", type: "email", placeholder: "Enter email -id" })
+	                                        )
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        "div",
+	                                        { className: "form-group" },
+	                                        _react2.default.createElement(
+	                                            "label",
+	                                            { className: "col-lg-2 control-label", "for": "password" },
+	                                            "Password"
+	                                        ),
+	                                        _react2.default.createElement(
+	                                            "div",
+	                                            { "class": "col-lg-10" },
+	                                            _react2.default.createElement("input", { "class": "form-control", id: "password", type: "text", placeholder: "Enter Password" })
+	                                        )
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        "div",
+	                                        { className: "modal-footer" },
+	                                        _react2.default.createElement(
+	                                            "button",
+	                                            { className: "btn btn-primary", type: "button" },
+	                                            "Submit"
+	                                        ),
+	                                        _react2.default.createElement(
+	                                            "button",
+	                                            { className: "btn btn-success", type: "button", "data-dismiss": "modal" },
+	                                            "Close"
+	                                        )
+	                                    )
+	                                )
+	                            )
+	                        )
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+	
+	    return login;
 	}(_react2.default.Component);
 	
-	exports.default = registration;
+	exports.default = login;
 
 /***/ },
 /* 124 */
@@ -29121,9 +29228,9 @@
 	
 	var _Home2 = _interopRequireDefault(_Home);
 	
-	var _registration = __webpack_require__(123);
+	var _login = __webpack_require__(123);
 	
-	var _registration2 = _interopRequireDefault(_registration);
+	var _login2 = _interopRequireDefault(_login);
 	
 	var _Contact = __webpack_require__(115);
 	
@@ -29186,7 +29293,7 @@
 	  _react2.default.createElement(
 	    Route,
 	    { path: '/', component: MainComponent },
-	    _react2.default.createElement(IndexRoute, { component: _registration2.default }),
+	    _react2.default.createElement(IndexRoute, { component: _login2.default }),
 	    _react2.default.createElement(Route, { path: '/home', component: _Home2.default }),
 	    _react2.default.createElement(Route, { path: '/about', component: _About2.default }),
 	    _react2.default.createElement(Route, { path: '/contact', component: _Contact2.default }),

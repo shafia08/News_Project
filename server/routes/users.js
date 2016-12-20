@@ -11,8 +11,8 @@ router.get('/', function(req, res, next) {
 router.post('/insert', function(req, res)
 {
     var regis = new register({
-    firstname : req.body.fname,
-    lastname : req.body.lname,
+    username : req.body.username,
+   
     email : req.body.email,
     password :req.body.password, });
 
@@ -23,7 +23,7 @@ router.post('/insert', function(req, res)
        res.send(err);
      }
     else {
-      res.send(" details saved ");
+      res.send(" details saved "+regis.username+regis.password);
     }
   }); //end of save function
 }); //end of post route insert
