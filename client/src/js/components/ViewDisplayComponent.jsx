@@ -50,6 +50,7 @@
 							console.log('error');
 							}
 							});
+
 							}    
 
 
@@ -80,6 +81,9 @@
 							<h3><a href="#" >{this.props.viewElement.title}</a></h3>
 							<h6>{this.props.viewElement.publishedAt}</h6>
 							<p>{this.props.viewElement.description}</p>
+							<a href="" role="button" >...more</a>
+							<br/>
+							<br/>
 
 
 											<a href={modalRef} role="button" data-toggle="modal" type="button" className="btn btn-primary" onClick={this.updateNews}>Update</a>
@@ -123,7 +127,7 @@
 										</div>
 
 											<div className="modal-footer">
-											<button className="btn btn-primary" type="button" onClick={this.updateNews} >Save Comments
+											<button className="btn btn-primary" type="button" data-dismiss="modal" onClick={this.updateNews} >Save Comments
 											</button>
 											
  											<button className="btn btn-success" type="button" data-dismiss="modal" >Close

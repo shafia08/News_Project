@@ -9,7 +9,7 @@
 		}
 
 		savingNews(){
-		
+		  alert('Your news is saved');
 		 $.ajax({
 		  url: "http://localhost:8080/news/save",
 		  type: "POST",

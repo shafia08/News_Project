@@ -27,6 +27,7 @@
                       
                    
                       <div className="input-group-btn-lg">
+                        <br/>
                         <center><button className="btn btn-success" onClick={this.searchProvider}>SEARCH
                         </button></center>
                       </div>
