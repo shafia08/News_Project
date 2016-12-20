@@ -7,6 +7,7 @@ var {hashHistory, Route, Router, IndexRoute}
 
 import About from './components/About.jsx';
 import Home from './components/Home.jsx';
+import login from './components/login.jsx';
 
 import Contact from './components/Contact.jsx';
 
@@ -30,7 +31,9 @@ return (
 ReactDOM.render(
 <Router history={hashHistory}>
              
+            
              <Route path="/" component={MainComponent}>
+             <IndexRoute component={login}/>
              <Route path="/home" component={Home}/>
              <Route path="/about" component={About}/>
              <Route path="/contact" component={Contact}/>

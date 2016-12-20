@@ -62,6 +62,9 @@
 
 							render()
 							{
+
+							var newsId = this.props.viewElement._id;
+							var modalRef = "#" + newsId;
 							console.log("View Display Component");
 							
 							return (
@@ -79,10 +82,10 @@
 							<p>{this.props.viewElement.description}</p>
 
 
-											<a href="#MyModal" role="button" data-toggle="modal" type="button" class="btn btn-primary" onClick={this.updateNews}>Update</a>
+											<a href={modalRef} role="button" data-toggle="modal" type="button" className="btn btn-primary" onClick={this.updateNews}>Update</a>
 
 
-											<div className="modal fade" id="MyModal">
+											<div className="modal fade" id={newsId}>
 											<div className="modal-dialog">
 											<div className="modal-content">
 											<div className="modal-header">
@@ -111,7 +114,7 @@
 											       <div className="form-group">
 													<label className="col-lg-2 control-label" for="comment_input">Comment</label>
 													<div className="col-lg-10">
-													<input type="text"  id="commentid"  placeholder="Enter Comment" onChange={this.changeValue} value={this.props.viewElement.Comment}/>
+													<input type="text"  id="commentid"  placeholder="Enter Comment" onChange={this.changeValue} />
 												    </div>
 											       </div>
 											</form>
@@ -122,7 +125,8 @@
 											<div className="modal-footer">
 											<button className="btn btn-primary" type="button" onClick={this.updateNews} >Save Comments
 											</button>
-											<button className="btn btn-default" data-dismiss="modal" type="button">Close
+											
+ 											<button className="btn btn-success" type="button" data-dismiss="modal" >Close
 											</button>
 
 											</div> 
@@ -132,8 +136,8 @@
 											</div>
 											</div>
 
-
-							<input type="button" value="delete"  onClick={this.deleteNews}/>
+                           
+							<button className="btn btn-primary" type="button" onClick={this.deleteNews}>Delete</button>
 							</article>
 	                         
 	                         
