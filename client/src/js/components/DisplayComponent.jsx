@@ -42,10 +42,13 @@
 		    </article>
 
 		    <article className="col-md-8" >
-		    <h3><a href="#" >{this.props.item.title}</a></h3>
+		    <h3><a href={this.props.item.url} target="_blank">{this.props.item.title}</a></h3>
 		    <h6>{this.props.item.publishedAt}</h6>
 		    <p>{this.props.item.description}</p>
-		    <input type="button" value="Save" onClick={this.savingNews} />
+		    <a href={this.props.item.url} role="button" target="_blank">...more</a>
+		    <br/>
+		    <br/>
+		    <button className="btn btn-primary" type="button" onClick={this.savingNews}>Save</button>
 		    </article>
 		    
 		    </div>

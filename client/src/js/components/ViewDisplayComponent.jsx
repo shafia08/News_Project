@@ -78,10 +78,10 @@
 							</article>
 
 							<article className="col-md-8" >
-							<h3><a href="#" >{this.props.viewElement.title}</a></h3>
+							<h3><a href={this.props.viewElement.url} target="_blank">{this.props.viewElement.title}</a></h3>
 							<h6>{this.props.viewElement.publishedAt}</h6>
 							<p>{this.props.viewElement.description}</p>
-							<a href="" role="button" >...more</a>
+							<a href={this.props.viewElement.url} role="button" target="_blank">...more</a>
 							<br/>
 							<br/>
 
