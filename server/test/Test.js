@@ -41,7 +41,7 @@ describe.skip("Testing the first route of Registration", function(err){
 
 
 
-describe("News", function(err){
+describe.skip("SaveNews", function(err){
 
   it("It should save news", function(done){
 
@@ -68,6 +68,48 @@ describe("News", function(err){
         });
 
   });
+});
 
 
+describe.skip("DeleteNews", function(err){
+
+  it("It should delete the saved news", function(done){
+
+  var myjson ={"title": "You won’t be able to fix Apple AirPods yourself and you probably shouldn’t try"}
+    url
+        .delete("/news/delete")
+        .expect(200)
+        .send(myjson)
+        .end(function(err,res){
+          if (err){
+          	  throw err;
+          }
+          assert.equal("Deleted",res.text,"res.text is not match");
+
+          done();
+        });
+
+  });
+});
+
+
+describe("UpdateNews", function(err){
+
+  it("It should update the news", function(done){
+
+  var myjson ={"title": "Trump meets with 'great guy' Carlos Slim whom he once disparaged","Comment":"I dont like Trump"}
+    url
+        .put("/news/update")
+        .expect(200)
+        .send(myjson)
+        .end(function(err,res){
+          if (err){
+          	  throw err;
+          }
+          assert.equal("News updated",res.text,"res.text is not match");
+
+          done();
+        });
+
+  });
 });

@@ -65,7 +65,7 @@ router.put('/update',function(req,res,next)
      else
       {
 
-         res.send("find title to update"+mytitle+' '+myComment);
+         res.send("News updated");
       }
   });
 
