@@ -4,7 +4,7 @@ var router = express.Router();
 var saveMynews = require('../models/save_news');
 
 
-router.post('/save',isLoggedIn, function(req, res)
+router.post('/save', function(req, res)
 {
       var saveNews = new saveMynews
       ({
@@ -32,7 +32,7 @@ router.post('/save',isLoggedIn, function(req, res)
 //module.exports = router;
 
 //To delete the News
-router.delete('/delete',isLoggedIn,function(req,res)
+router.delete('/delete',function(req,res)
 {
    if(req.body)
    {
@@ -51,7 +51,7 @@ router.delete('/delete',isLoggedIn,function(req,res)
 
 });
 
-router.put('/update',isLoggedIn,function(req,res,next)
+router.put('/update',function(req,res,next)
 {
 
     var mytitle = req.body.title;
