@@ -3,8 +3,8 @@ var router = express.Router();
 
 var saveMynews = require('../models/save_news');
 
-/* GET users listing. */
-router.post('/save', function(req, res)
+
+router.post('/save',isLoggedIn, function(req, res)
 {
       var saveNews = new saveMynews
       ({
@@ -32,7 +32,7 @@ router.post('/save', function(req, res)
 //module.exports = router;
 
 //To delete the News
-router.delete('/delete',function(req,res)
+router.delete('/delete',isLoggedIn,function(req,res)
 {
    if(req.body)
    {
@@ -51,7 +51,7 @@ router.delete('/delete',function(req,res)
 
 });
 
-router.put('/update',function(req,res,next)
+router.put('/update',isLoggedIn,function(req,res,next)
 {
 
     var mytitle = req.body.title;
@@ -82,4 +82,17 @@ router.get('/viewnews', function(req, res) {
       });
 });
 
+function isLoggedIn(req, res, next) {
+console.log("inside logged in function")
+alert("Not Logged In");
+if(req.isAuthenticated()){
+return next();
+}
+else {
+  res.json('not authenticated please log in ');
+}
+};
+
 module.exports = router;
+
+

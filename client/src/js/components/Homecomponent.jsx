@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import SearchComponent from './SearchComponent';
 import NewsComponent from './NewsComponent';
 
-export default class home extends React.Component{
+export default class Homecomponent extends React.Component{
 	constructor(){
 		super();
 		this.state={newsArr:[]};

@@ -1,8 +1,8 @@
 import React from 'react';
 import {browserHistory} from 'react-router';
-import home from './home.jsx';
 
-export default class registrationAndLogin extends React.Component
+
+export default class Login extends React.Component
 {
     constructor(){
     super();
@@ -63,7 +63,7 @@ export default class registrationAndLogin extends React.Component
                    error: function(err){
                          console.log(err);
                          alert("Incorrect username and password");
-                         browserHistory.push('/registraionAndLogin');
+                         browserHistory.push('/login');
                    }
                 });
 
@@ -75,7 +75,7 @@ export default class registrationAndLogin extends React.Component
 	return(
          <div>
                 <center>
-                <h1>SignUp</h1>
+                <h1>Login</h1>
                 <h3>Username:<input type="text" placeholder="Enter Username" ref="user"/></h3>
                 
                 <h3>Password:<input type="password" placeholder="Enter password" ref="pass"/></h3>

@@ -17,6 +17,7 @@
 
 							deleteNews()
 							{
+
 							$.ajax({
 							url: "http://localhost:8080/news/delete",
 							type: "DELETE",
@@ -30,6 +31,7 @@
 							console.log('error');
 							}
 							});
+							alert("News Deleted");
 							} 
 
 

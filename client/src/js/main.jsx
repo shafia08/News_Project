@@ -6,8 +6,8 @@ var {browserHistory, Route, Router, IndexRoute}
   = require('react-router');
 
 import About from './components/About.jsx';
-import home from './components/home.jsx';
-import registrationAndLogin from './components/registrationAndLogin.jsx';
+import Homecomponent from './components/Homecomponent.jsx';
+import Login from './components/Login.jsx';
 
 import Contact from './components/Contact.jsx';
 
@@ -32,10 +32,12 @@ ReactDOM.render(
 <Router history={browserHistory}>
              
             
-             <Route path="/" component={registrationAndLogin}>
-             <IndexRoute component={home}/>
-             <Route path="/home" component={home}/>
+             <Route path="/" component={MainComponent}>
+             <IndexRoute component={Login}/>
+             <Route path="/home" component={Homecomponent}/>
              <Route path="/about" component={About}/>
+             <Route path="/navbar" component={NavBar}/>
+             <Route path="/login" component={Login}/>
              <Route path="/contact" component={Contact}/>
 			 <Route path="/viewfavcomponent" component={viewFavComponent}/>
 			
