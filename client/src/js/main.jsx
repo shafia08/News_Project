@@ -39,8 +39,7 @@ ReactDOM.render(
              <Route path="/navbar" component={NavBar}/>
              <Route path="/login" component={Login}/>
              <Route path="/contact" component={Contact}/>
-			 <Route path="/viewfavcomponent" component={viewFavComponent}/>
-			
-			 </Route>
+             <Route path="/viewfavcomponent" component={viewFavComponent}/>
+              </Route>
 
 </Router>,document.getElementById('content'));

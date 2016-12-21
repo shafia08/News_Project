@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "febb269c9830441cd7d1"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "db5c61ec20f662e7f3e0"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -13704,6 +13704,7 @@
 	                    console.log("error occurred");
 	                }
 	            });
+	            alert("user registered");
 	        }
 	    }, {
 	        key: 'user',
@@ -13964,6 +13965,15 @@
 	                  { to: '/contact' },
 	                  'Contact Us'
 	                )
+	              ),
+	              React.createElement(
+	                'li',
+	                null,
+	                React.createElement(
+	                  Link,
+	                  { to: '/login' },
+	                  'Login'
+	                )
 	              )
 	            )
 	          )
@@ -14170,6 +14180,7 @@
 								_createClass(ViewDisplayComponent, [{
 															key: 'deleteNews',
 															value: function deleteNews() {
+	
 																						$.ajax({
 																													url: "http://localhost:8080/news/delete",
 																													type: "DELETE",
@@ -14183,6 +14194,7 @@
 																																				console.log('error');
 																													}
 																						});
+																						alert("News Deleted");
 															}
 								}, {
 															key: 'updateNews',
