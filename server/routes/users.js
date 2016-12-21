@@ -23,7 +23,7 @@ router.post('/insert', function(req, res)
        res.send(err);
      }
     else {
-      res.send(" details saved "+regis.username+regis.password);
+      res.send(" details saved ");
     }
   }); //end of save function
 }); //end of post route insert

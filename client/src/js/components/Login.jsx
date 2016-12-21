@@ -28,6 +28,7 @@ export default class Login extends React.Component
                 console.log("error occurred");
             }
         })
+        alert("user registered");
    }
 
 

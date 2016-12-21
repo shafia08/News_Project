@@ -3,7 +3,7 @@ var schema = mongoose.Schema;
 
 var userRegDetails= new schema(
   {
-    username:{type:String, unique:true},
+    username:String,
     email:String,
     password:String
   }
