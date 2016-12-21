@@ -2,12 +2,12 @@ import 'file?name=[name].[ext]!../index.html';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-var {hashHistory, Route, Router, IndexRoute}
+var {browserHistory, Route, Router, IndexRoute}
   = require('react-router');
 
 import About from './components/About.jsx';
-import Home from './components/Home.jsx';
-import login from './components/login.jsx';
+import home from './components/home.jsx';
+import registrationAndLogin from './components/registrationAndLogin.jsx';
 
 import Contact from './components/Contact.jsx';
 
@@ -29,12 +29,12 @@ return (
 }
 }
 ReactDOM.render(
-<Router history={hashHistory}>
+<Router history={browserHistory}>
              
             
-             <Route path="/" component={MainComponent}>
-             <IndexRoute component={login}/>
-             <Route path="/home" component={Home}/>
+             <Route path="/" component={registrationAndLogin}>
+             <IndexRoute component={home}/>
+             <Route path="/home" component={home}/>
              <Route path="/about" component={About}/>
              <Route path="/contact" component={Contact}/>
 			 <Route path="/viewfavcomponent" component={viewFavComponent}/>

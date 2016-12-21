@@ -1,12 +1,17 @@
 import React from 'react';
+import {browserHistory} from 'react-router';
+import home from './home.jsx';
 
-export default class login extends React.Component
+export default class registrationAndLogin extends React.Component
 {
     constructor(){
     super();
+    this.state={"username":"default","password":"default"}
+
     this.register=this.register.bind(this);
 
     }
+
 
    register()
    {
@@ -25,17 +30,57 @@ export default class login extends React.Component
         })
    }
 
+
+
+   user(euser) {
+    this.setState({"username":euser.target.value});
+    console.log(this.state.username);
+    }
+    
+    pass(epass){
+     this.setState({password:epass.target.value});
+    }
+
+   userLogin(){
+             console.log("Inside login");
+             var login={"username":this.refs.user.value,"password":this.refs.pass.value}
+
+              console.log("login clicked");
+              console.log(login);
+
+             $.ajax({
+                   url: "http://localhost:8080/login",
+                   type: "POST",
+                   data:login,
+
+                   success : function(data)
+                    {
+                         console.log("inside success");
+                         alert("Successfully logged in");
+                         browserHistory.push('/home');
+                    },
+                   
+                   error: function(err){
+                         console.log(err);
+                         alert("Incorrect username and password");
+                         browserHistory.push('/registraionAndLogin');
+                   }
+                });
+
+                            
+    }
+
 	render()
 	{
 	return(
          <div>
                 <center>
                 <h1>SignUp</h1>
-                <h3>Username:<input type="text" placeholder="Enter Username"/></h3>
+                <h3>Username:<input type="text" placeholder="Enter Username" ref="user"/></h3>
                 
-                <h3>Password:<input type="password" placeholder="Enter password"/></h3>
+                <h3>Password:<input type="password" placeholder="Enter password" ref="pass"/></h3>
                
-                <button className="btn btn-primary" type="button">Login</button>
+                <button className="btn btn-primary" type="button" onClick={this.userLogin.bind(this)}>Login</button>
                 
                 <br />
                 <br />
@@ -79,7 +124,7 @@ export default class login extends React.Component
 													</div>
 
 											<div className="modal-footer">
-											<button className="btn btn-primary" type="button" onClick={this.register}>Submit
+											<button className="btn btn-primary" type="button" data-dismiss="modal" onClick={this.register}>Submit
 											</button>
 											
  											<button className="btn btn-success" type="button" data-dismiss="modal" >Close

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import SearchComponent from './SearchComponent';
 import NewsComponent from './NewsComponent';
 
-export default class Home extends React.Component{
+export default class home extends React.Component{
 	constructor(){
 		super();
 		this.state={newsArr:[]};
@@ -20,7 +20,9 @@ export default class Home extends React.Component{
 			dataType: 'JSON',
 
 			success : function(msg){
+			console.log('msg:'+msg);
 			var array = msg.articles;
+			console.log('hello'+array);
 			/*msg reprewsents JSON data of news headlines sent back by external API*/
 			that.setState({newsArr:array});
 			},
@@ -30,13 +32,13 @@ export default class Home extends React.Component{
 	}
 	render()
 	{
-		console.log("Home Array is");
 		console.log(this.state.newsArr);
 		return (
 			<div>
 			<h1>Welcome!</h1>
 			<SearchComponent search = {this.fetchNewsFromExternalAPI} />
 			<NewsComponent newdata = {this.state.newsArr} />
+	        <h2>{this.state.newsArr}</h2>
 			</div>
 		)
 	}
